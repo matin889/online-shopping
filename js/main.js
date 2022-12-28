@@ -1,4 +1,13 @@
 const shop = document.getElementById('shop');
+const menu = document.getElementById('categories');
+
+const menuOpen = () => {
+    menu.style.display = "block";
+}
+
+const menuClose = () => {
+    menu.style.display = "none";
+}
  
 let basket = JSON.parse(localStorage.getItem("data")) || [];
 

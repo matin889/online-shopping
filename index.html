@@ -17,14 +17,22 @@
 
         <ul class="categories" id="categories">
             <!-- Generera knappar för varje kategori. Ha även med en knapp för "All categories" -->
+            <li class="close-btn">
+                <i onclick="menuClose()" class="bi bi-x-square"></i>
+              </li> 
             <li>
-              <a href="mens-clothing.html">Mens Clothing</a>
+              <a href="men's-clothing.html">Mens Clothing</a>
             </li>
             <li>Jewelary</li>
             <li>Electronics</li>
             <li>Womens Clothing</li>
+            <!-- <li class="open-btn">
+                <i class="bi bi-list"></i>
+              </li> -->
         </ul>
-    
+        <div class="open-btn">
+            <i onclick="menuOpen()" class="bi bi-list"></i>
+        </div>
         <a href="cart.html">
           <div class="cart">
             <i class="bi bi-cart2"></i>
