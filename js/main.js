@@ -60,4 +60,16 @@ const increment = (id) => {
 
 const decrement = (id) => {
     // Om användaren klickar på - på produkten 
+    const selectedProduct = id;
+    const productInBasket = basket.find((a) =>
+        a.id === selectedProduct)
+        if (productInBasket === undefined) {
+            return;
+        }
+        else if (productInBasket.item === 0) {
+        return;
+        } else {
+        productInBasket.item -= 1;
+        }
+        console.log(basket);
 }
