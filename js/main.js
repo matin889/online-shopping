@@ -70,7 +70,7 @@ const decrement = (id) => {
         } else {
         productInBasket.item -= 1;
         }
-        console.log(basket);
+        // console.log(basket);
         updateItem(selectedProduct);
 }
 
@@ -80,5 +80,15 @@ const updateItem = (id) => {
         a.id === selectedProduct)
     const quantity = document.getElementById(id);
     quantity.innerHTML = productInBasket.item;
-    console.log(productInBasket.item);
+    // console.log(productInBasket.item);
+    basketItem();
 }
+
+const basketItem = () => {
+    const cart = document.getElementById('cartAmount');
+    const toatalItem = basket.reduce((a, b) =>
+        {return a + b.item}, 0)
+    cart.innerHTML = toatalItem;
+    console.log(toatalItem);
+}
+basketItem()
