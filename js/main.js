@@ -4,22 +4,16 @@ const menu = document.getElementById('categories');
 const menuOpen = () => {
     menu.style.display = "block";
 }
-
 const menuClose = () => {
     menu.style.display = "none";
 }
- 
 let basket = JSON.parse(localStorage.getItem("data")) || [];
-
 // Produktdatat finns i variabeln shopData (se data.js)
-
-
 const generateShop = () => {
     // Generera alla produkter med dynamisk HTML och Array.protype.map() samt join()
     // Använd denna markup för varje produktkort - den korresponderar mot CSS:en
     //
-    return (shop.innerHTML = shopData.map((item) => {
-        
+    return (shop.innerHTML = shopData.map((item) => { 
         return `<div id=product-id-${item.id} class="item">
         <img width="220" src=${item.image} alt=""> 
         <div class="details">
