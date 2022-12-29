@@ -53,7 +53,7 @@ const increment = (id) => {
     } else {
         productInBasket.item += 1;
     }
-    console.log(basket);
+    localStorage.setItem('data', JSON.stringify(basket));
     updateItem(selectedProduct);
 }
 
@@ -71,6 +71,7 @@ const decrement = (id) => {
         productInBasket.item -= 1;
         }
         // console.log(basket);
+        localStorage.setItem('data', JSON.stringify(basket));
         updateItem(selectedProduct);
 }
 
