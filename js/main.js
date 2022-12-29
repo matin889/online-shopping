@@ -44,6 +44,18 @@ generateShop()
 
 const increment = (id) => {
     // Om användaren klickar på + på produkten 
+    const selectedProduct = id;
+    const productInBasket = basket.find((a) =>
+        a.id === selectedProduct)
+    if (productInBasket === undefined) {
+        basket.push ({
+            id: selectedProduct,
+            item: 1,
+        })
+    } else {
+        productInBasket.item += 1;
+    }
+    console.log(basket);
 }
 
 const decrement = (id) => {
