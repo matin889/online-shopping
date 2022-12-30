@@ -1,12 +1,24 @@
 const shop = document.getElementById('shop');
 const menu = document.getElementById('categories');
+const close =document.getElementById('close');
+const open = document.getElementById('open');
 
-const menuOpen = () => {
-    menu.style.display = "block";
+ menuFunction = (a, b, c) => {
+    a.addEventListener("click",() => {
+        a.classList.toggle('hide');
+        b.classList.toggle('hide');
+
+        if(c == 'menu-open') {
+            menu.classList.toggle("slide");
+        }
+        if(c == 'menu-close') {
+            menu.classList.toggle("slide");
+        }
+    })
 }
-const menuClose = () => {
-    menu.style.display = "none";
-}
+menuFunction(open, close, "menu-open");
+menuFunction(close, open, "menu-close");
+
 let basket = JSON.parse(localStorage.getItem("data")) || [];
 // Produktdatat finns i variabeln shopData (se data.js)
 const generateShop = () => {

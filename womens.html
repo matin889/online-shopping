@@ -11,34 +11,29 @@
 </head>
 <body>
     <div class="navbar">
+        <div class="menu">
+            <i id="close" class="bi bi-x-square hide"></i>
+            <i id="open"  class="bi bi-list"></i>
+        </div>
         <a href="index.html">
           <h2>Shoppa loss</h2>
         </a>
 
-        <ul class="categories" id="categories">
+        <ul class="categories slide" id="categories">
             <!-- Generera knappar för varje kategori. Ha även med en knapp för "All categories" -->
-            <li class="close-btn">
-                <i onclick="menuClose()" class="bi bi-x-square"></i>
-              </li> 
             <li>
-              <a href="mens.html">Men's Clothing</a>
-            </li>
-            <li>
-                <a href="jewelary.html">Jewelary</a>
-            </li>
-            <li>
-                <a href="electronics.html">Electronics</a>
-            </li>
-            <li>
-            <a href="womens.html">Women's Clothing</a>
-            </li>
-            <!-- <li class="open-btn">
-                <i class="bi bi-list"></i>
-              </li> -->
+                <a href="mens.html">Men's Clothing</a>
+              </li>
+              <li>
+                  <a href="jewelary.html">Jewelary</a>
+              </li>
+              <li>
+                  <a href="electronics.html">Electronics</a>
+              </li>
+              <li>
+              <a href="womens.html">Women's Clothing</a>
+              </li>
         </ul>
-        <div class="open-btn">
-            <i onclick="menuOpen()" class="bi bi-list"></i>
-        </div>
         <a href="cart.html">
           <div class="cart">
             <i class="bi bi-cart2"></i>
