@@ -19,8 +19,12 @@ const open = document.getElementById('open');
 menuFunction(open, close, "menu-open");
 menuFunction(close, open, "menu-close");
 
+
+
 let basket = JSON.parse(localStorage.getItem("data")) || [];
 // Produktdatat finns i variabeln shopData (se data.js)
+
+//function for creating html for products
 const generateShop = () => {
     // Generera alla produkter med dynamisk HTML och Array.protype.map() samt join()
     // Använd denna markup för varje produktkort - den korresponderar mot CSS:en
@@ -28,9 +32,10 @@ const generateShop = () => {
     return (shop.innerHTML = shopData.map((item) => { 
         return `<div id=product-id-${item.id} class="item">
         <img width="220" src=${item.image} alt=""> 
-        <div class="details">
+        <div id="details" class="details">
             <h3>${item.title}</h3>
             <p>${item.description}</p>
+            <span onclick="spanSelected(${item.id})" id="read"></span>
             <div class="price-quantity">
             <h2>$ ${item.price}</h2>
             <div class="buttons">
@@ -46,6 +51,18 @@ const generateShop = () => {
 
 generateShop()
 
+// function for read more features
+const readSpan = document.getElementById('read');
+const detailsText = document.getElementById('details');
+
+console.log(detailsText);
+const spanSelected = (id) => {
+    detailsText.classList.toggle("active");
+    console.log(id);
+}
+spanSelected();
+
+// function for incrementing items
 const increment = (id) => {
     // Om användaren klickar på + på produkten 
     const selectedProduct = id;
@@ -63,6 +80,7 @@ const increment = (id) => {
     updateItem(selectedProduct);
 }
 
+// function for decrementing items
 const decrement = (id) => {
     // Om användaren klickar på - på produkten 
     const selectedProduct = id;
@@ -81,6 +99,7 @@ const decrement = (id) => {
         updateItem(selectedProduct);
 }
 
+//function for updating items
 const updateItem = (id) => {
     const selectedProduct = id;
     const productInBasket = basket.find((a) =>
@@ -91,6 +110,7 @@ const updateItem = (id) => {
     basketItem();
 }
 
+// function for updating items in the cart
 const basketItem = () => {
     const cart = document.getElementById('cartAmount');
     const toatalItem = basket.reduce((a, b) =>

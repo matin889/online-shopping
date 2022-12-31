@@ -31,9 +31,10 @@ const generateShop = () => {
     return (shop.innerHTML = mens.map((item) => { 
         return `<div id=product-id-${item.id} class="item">
         <img width="220" src=${item.image} alt=""> 
-        <div class="details">
+        <div id="details" class="details">
             <h3>${item.title}</h3>
             <p>${item.description}</p>
+            <span id="read"></span>
             <div class="price-quantity">
             <h2>$ ${item.price}</h2>
             <div class="buttons">
@@ -48,6 +49,17 @@ const generateShop = () => {
 }
 
 generateShop()
+
+const readSpan = document.getElementById('read');
+const detailsText = document.getElementById('details');
+
+console.log(readSpan);
+
+readSpan.addEventListener('click', function() {
+    detailsText.classList.toggle('active');
+    console.log("it is working");
+
+    })
 
 const increment = (id) => {
     // Om användaren klickar på + på produkten 

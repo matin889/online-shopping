@@ -50,10 +50,13 @@
   .categories {
     display: flex;
     word-break: break-all;
-    gap: 10px;
+    gap: 25px;
   }
   ul {
     list-style: none;
+  }
+  a:hover {
+    background: rgb(74, 4, 141);
   }
   .menu {
     display: none;
@@ -81,7 +84,32 @@
     margin-bottom: 50px;
     padding: 0 2rem;
   }
+  /**
+  * Read more and read less features
+  **/
+  #details p {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
   
+  #read::before {
+    content: '.....';
+    color: green;
+    cursor: pointer;
+  }
+  #details.active p {
+    display: block;
+  }
+  #details.active #read::before {
+    content: '---';
+    color: red;
+    cursor: pointer;
+  }
+  /**
+  * --------------------------
+  **/
   @media (max-width: 900px) {
     .shop {
       grid-template-columns: repeat(2, 223px);
@@ -94,7 +122,6 @@
     }
     .categories {
       position: absolute;
-      /* display: none; */
       flex-direction: column;
       align-items: center;
       width: 35%;
