@@ -19,8 +19,6 @@ const open = document.getElementById('open');
 menuFunction(open, close, "menu-open");
 menuFunction(close, open, "menu-close");
 
-
-
 let basket = JSON.parse(localStorage.getItem("data")) || [];
 // Produktdatat finns i variabeln shopData (se data.js)
 
@@ -52,15 +50,11 @@ const generateShop = () => {
 generateShop()
 
 // function for read more features
-const readSpan = document.getElementById('read');
-const detailsText = document.getElementById('details');
-
-console.log(detailsText);
 const spanSelected = (id) => {
-    detailsText.classList.toggle("active");
-    console.log(id);
-}
-spanSelected();
+    const item = document.getElementById(`product-id-${id}`);
+    const itemDetails = item.getElementsByClassName("details")[0];
+    itemDetails.classList.toggle("active");
+    }
 
 // function for incrementing items
 const increment = (id) => {

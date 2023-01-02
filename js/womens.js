@@ -33,7 +33,7 @@ const generateShop = () => {
         <div id="details" class="details">
             <h3>${item.title}</h3>
             <p>${item.description}</p>
-            <span id="read"></span>
+            <span onclick="spanSelected(${item.id})" id="read"></span>
             <div class="price-quantity">
             <h2>$ ${item.price}</h2>
             <div class="buttons">
@@ -49,18 +49,12 @@ const generateShop = () => {
 
 generateShop()
 
-const readSpan = document.getElementById('read');
-const detailsText = document.getElementById('details');
-
-console.log(readSpan);
-
-readSpan.addEventListener('click', function() {
-    const selectedSpan = readSpan;
-    console.log(selectedSpan);
-    detailsText.classList.toggle('active');
-    console.log("it is working");
-
-    })
+// function for read more features
+const spanSelected = (id) => {
+    const item = document.getElementById(`product-id-${id}`);
+    const itemDetails = item.getElementsByClassName("details")[0];
+    itemDetails.classList.toggle("active");
+    }
 
 const increment = (id) => {
     // Om användaren klickar på + på produkten 
