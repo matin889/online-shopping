@@ -22,12 +22,26 @@ menuFunction(close, open, "menu-close");
 let basket = JSON.parse(localStorage.getItem("data")) || [];
 // Produktdatat finns i variabeln shopData (se data.js)
 
+const categoryDictionary = {
+    mens: "men's clothing",
+    jewelery: "jewelery",
+    electronics: "electronics",
+    womens: "women's clothing"
+}
+
+const filterProducts = category => item => { 
+    if (!categoryDictionary[category]) {
+        return true;
+    }
+    return item.category === categoryDictionary[category]
+}
 //function for creating html for products
-const generateShop = () => {
+const generateShop = (category) => {
     // Generera alla produkter med dynamisk HTML och Array.protype.map() samt join()
     // Använd denna markup för varje produktkort - den korresponderar mot CSS:en
-    //
-    return (shop.innerHTML = shopData.map((item) => { 
+    const productsData = shopData.filter(filterProducts(category))
+    
+    return (shop.innerHTML = productsData.map((item) => { 
         return `<div id=product-id-${item.id} class="item">
         <img width="220" src=${item.image} alt=""> 
         <div id="details" class="details">
@@ -46,8 +60,11 @@ const generateShop = () => {
     </div>`
     }).join(' ')); 
 }
-
-generateShop()
+function parseQuery(query, queryString) {
+    return new URLSearchParams(queryString).get(query)
+}
+const categoryName = parseQuery('category', location.search)
+generateShop(categoryName)
 
 // function for read more features
 const spanSelected = (id) => {
@@ -110,6 +127,5 @@ const basketItem = () => {
     const toatalItem = basket.reduce((a, b) =>
         {return a + b.item}, 0)
     cart.innerHTML = toatalItem;
-    console.log(toatalItem);
 }
 basketItem()
