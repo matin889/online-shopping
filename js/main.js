@@ -89,6 +89,12 @@ const increment = (id) => {
     }
     localStorage.setItem('data', JSON.stringify(basket));
     updateItem(selectedProduct);
+ //code for event listner for google analytic
+ gtag('event', 'click_increase_button', {
+  'event_category': 'Increasing products',
+  'event_lebel': 'Adding products in the cart',
+  'value': 1
+});
 }
 
 // function for decrementing items
@@ -108,6 +114,12 @@ const decrement = (id) => {
         // console.log(basket);
         localStorage.setItem('data', JSON.stringify(basket));
         updateItem(selectedProduct);
+ //code for event listner for google analytic
+ gtag('event', 'click_decrease_button', {
+  'event_category': 'Decreasing products',
+  'event_lebel': 'Dropping products from the cart',
+  'value': 1
+});
 }
 
 //function for updating items
